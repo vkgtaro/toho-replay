@@ -1,0 +1,68 @@
+東方永夜抄
+
+プレイヤー名	Taro    
+プレイ時刻	2007/05/06 22:51:17
+キャラ名	魔理沙＆アリス　
+スコア		1385570940
+難易度		Normal
+最終ステージ	Clear
+ミス回数	6
+ボム回数	15
+処理落ち率	0.043619%
+人間率		36.04％
+ゲームのバージョン	1.00d
+USER       テスト
+
+花映塚
+
+プレイヤー名	Taro    
+プレイ時刻	07/04/30
+難易度		Hard
+モード		Story
+使用キャラ		てゐ
+初期体力		5.0 vs 5.0
+ゲームのバージョン	東方花映塚 ver 1.00
+USER                    テスト
+
+東方風神録 リプレイファイル情報
+Version 1.00a
+Name taro    
+Date 07/12/23 01:09
+Chara ReimuB 
+Rank Normal 
+Stage 1 〜 5
+Score 11856251
+Slow Rate 0.00
+USER テスト
+
+東方地霊殿 リプレイファイル情報
+Version 1.00a
+Name PETEN4! 
+Date 08/08/29 02:48
+Chara ReimuA 
+Rank Normal 
+Stage All Clear
+Score 47821502
+Slow Rate 0.12
+USER コメントを書けます
+
+date = dat2[0x10:0x10+8]
+name = dat2[0x19:0x19+8]
+char = ord(dat2[0x06])
+rank = ord(dat2[0x07])
+score = struct.unpack("L", dat2[0x24:0x24+4])[0]
+drop = struct.unpack("f", dat2[0x2c:0x2c+4])[0]
+
+# [date, player, char, score, rank, version, drop]
+date = trimNull(date)
+date = "20" + date[6:8] + "/" + date[0:2] + "/" + date[3:5]
+retArray[0] = trimNull(date)
+retArray[1] = trimNull(name)
+chars = ("ReimuA", "ReimuB", "MarisaA", "MarisaB")
+retArray[2] = chars[char]
+retArray[3] = str(score)
+levels = ("Easy","Normal","Hard","Lunatic","Extra")
+retArray[4] = levels[rank]
+retArray[5] = ""
+retArray[6] = "%5.3f" % drop
+return retArray

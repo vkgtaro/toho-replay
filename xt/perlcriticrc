@@ -1,0 +1,7 @@
+theme = core + mine
+
+[TestingAndDebugging::ProhibitNoStrict]
+allow=refs
+
+# Using TestingAndDebugging::RequireUseStrictOrUseMoose instead of this.
+[-TestingAndDebugging::RequireUseStrict]

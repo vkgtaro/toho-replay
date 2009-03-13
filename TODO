@@ -1,0 +1,5 @@
+ * decode は P:T:Replay::Factory でやればよくね？
+ * P:T::Replay::TH(\d+)#parse が激しくコピペ
+   * もう少し上手くまとまるでは？
+ * 東方花映塚の score が無い orz
+   * データの中にある？
