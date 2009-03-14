@@ -21,12 +21,6 @@ __PACKAGE__->meta->make_immutable;
 
 no Mouse;
 
-sub BUILD {
-    my ( $self, $args ) = @_;
-    $self->parse( $args->{str} );
-    return $self;
-}
-
 sub parse {
     my ( $self, $str ) = @_;
 

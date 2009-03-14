@@ -4,6 +4,12 @@ use Mouse::Role;
 
 requires qw(parse);
 
+sub BUILD {
+    my ( $self, $args ) = @_;
+    $self->parse( $args->{str} );
+    return $self;
+}
+
 sub set_accessor_if_get_value {
     my ( $self, $accessor, $key, $line ) = @_;
 

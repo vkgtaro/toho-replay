@@ -21,12 +21,6 @@ __PACKAGE__->meta->make_immutable;
 
 no Mouse;
 
-sub BUILD {
-    my ( $self, $args ) = @_;
-    $self->parse( $args->{str} );
-    return $self;
-}
-
 sub parse {
     my ( $self, $str ) = @_;
 
@@ -66,24 +60,24 @@ __END__
 
 =head1 NAME
 
-Toho::Replay::TH9 - 東方花映塚のリプレイ.
+Toho::Replay::TH11 - 東方地霊殿のリプレイ.
 
 =head1 SYNOPSIS
 
-  use Toho::Replay::TH9;
+  use Toho::Replay::TH11;
 
-  my $th9 = Toho::Replay::TH9->new();
-  $th9->parse($replay_string);
+  my $th11 = Toho::Replay::TH11->new();
+  $th11->parse($replay_string);
 
 =head1 DESCRIPTION
 
-東方花映塚のリプレイファイルを表すクラスです。
+東方地霊殿のリプレイファイルを表すクラスです。
 
 =head1 METHODS
 
 =head2 parse
 
-与えられた文字列を東方花映塚の replay file として parse します。
+与えられた文字列を東方地霊殿の replay file として parse します。
 
 =head1 ACCESSOR
 
