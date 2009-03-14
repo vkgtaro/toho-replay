@@ -4,7 +4,7 @@ use Mouse;
 use Carp::Clan;
 use utf8;
 
-with 'Toho::Replay::Parser';
+with 'Toho::Replay::Parseable';
 
 has label      => ( is => 'ro', default => '東方永夜抄' );
 has player     => ( is => 'rw', isa     => 'Str' );
