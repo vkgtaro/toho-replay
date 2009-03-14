@@ -37,7 +37,6 @@ sub parse {
         croak 'This file is not th8 replay file!';
     }
 
-    $str = decode( 'cp932', $str );
     $str =~ s{\x0D\x0A|\x0D|\x0A}{\n}xmsg;
     foreach my $line ( split "\n", $str ) {
         next if $self->set_accessor_if_get_value( 'player',     "プレイヤー名",       $line );

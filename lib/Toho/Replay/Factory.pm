@@ -2,6 +2,7 @@ package Toho::Replay::Factory;
 
 use Mouse;
 use Carp::Clan;
+use Encode;
 use Path::Class qw(file);
 use UNIVERSAL::require;
 
@@ -34,6 +35,7 @@ sub from_handle {
 sub from_string {
     my ( $self, $string ) = @_;
 
+    $string = decode( 'cp932', $string );
     if ( $string =~ m{\A T(\d+)RP }xmsi ) {
         my $version = $1;
         my $package = 'Toho::Replay::TH' . $version;

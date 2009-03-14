@@ -6,9 +6,11 @@ use Test::Base;
 
 use Toho::Replay::TH8;
 
+use Encode;
 use Path::Class qw(file);
 
 my $str  = file('t/replays/th8_01.rpy')->slurp();
+$str = decode( 'cp932', $str );
 my @keys = qw/label player date character score level stage miss bomb slow_rate human_rate version comment/;
 
 plan tests => @keys * blocks;

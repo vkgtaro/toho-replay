@@ -1,7 +1,6 @@
 package Toho::Replay::Parseable;
 
 use Mouse::Role;
-use Encode;
 
 requires qw(parse);
 
