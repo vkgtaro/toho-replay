@@ -28,8 +28,18 @@ run {
 }
 
 __END__
-=== ok
+=== th8
 --- file chomp
 t/replays/th8_01.rpy
 --- label chomp
 東方永夜抄
+=== th9
+--- file chomp
+t/replays/th9_01.rpy
+--- label chomp
+東方花映塚
+=== th10
+--- file chomp
+t/replays/th10_01.rpy
+--- label chomp
+東方風神録

@@ -36,7 +36,7 @@ sub from_string {
     my ( $self, $string ) = @_;
 
     $string = decode( 'cp932', $string );
-    if ( $string =~ m{\A T(\d+)RP }xmsi ) {
+    if ( $string =~ m{\A T(\d+)R }xmsi ) {
         my $version = $1;
         my $package = 'Toho::Replay::TH' . $version;
         $package->require or croak "$package does not exist!";
