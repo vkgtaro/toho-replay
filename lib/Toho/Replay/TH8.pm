@@ -60,6 +60,8 @@ sub parse {
         }
     }
 
+    $self->player( $self->trim_white_space($self->player) );
+    $self->character( $self->trim_white_space($self->character) );
 }
 
 1;

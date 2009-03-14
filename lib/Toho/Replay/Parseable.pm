@@ -10,14 +10,6 @@ sub set_accessor_if_get_value {
 
     if ( my $value = $self->get_value( $key, $line ) ) {
 
-        # FIXME: 空白除去は別なところでやる。ここだとハードコーディングに……
-        if (   $accessor ne 'date'
-            && $accessor ne 'strength'
-            && $accessor ne 'version' )
-        {
-            $value =~ s{\s}{}xmsg;
-        }
-
         $self->$accessor($value);
         return 1;
     }
@@ -27,10 +19,22 @@ sub set_accessor_if_get_value {
 sub get_value {
     my ( $self, $key, $line ) = @_;
 
-    if ( $line =~ m{$key \t+ (.*)}xms ) {
+    if ( $line =~ m{$key \s+ (.*)}xms ) {
         my $value = $1;
         return $value;
     }
+}
+
+sub trim_white_space {
+    my ( $self, $str ) = @_;
+    $str =~ s{\s+}{}xmsg;
+    $str;
+}
+
+sub trim_controll_code {
+    my ( $self, $str ) = @_;
+    $str =~ s{[\x00-\x09]|[\x0B-\x1F]|\x7F}{}xmsg;
+    $str;
 }
 
 1;

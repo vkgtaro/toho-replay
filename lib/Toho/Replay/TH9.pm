@@ -54,6 +54,7 @@ sub parse {
         }
     }
 
+    $self->player( $self->trim_white_space($self->player) );
 }
 
 1;
