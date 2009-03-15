@@ -2,7 +2,7 @@ use strict;
 use warnings;
 use utf8;
 
-use lib q(t/lib);
+use lib qw(t/lib);
 
 use Test::More qw(no_plan);
 
