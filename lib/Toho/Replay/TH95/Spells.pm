@@ -265,13 +265,13 @@ my $cards = {
     },
 };
 
-sub opponent {
+sub opponent_from_level_and_scene {
     my ( $self, $level, $scene ) = @_;
 
     return $opponent_maps->{$level}->{$scene};
 }
 
-sub card {
+sub card_from_level_and_scene {
     my ( $self, $level, $scene ) = @_;
 
     return $cards->{$level}->{$scene};

@@ -15,8 +15,8 @@ plan tests => 2 * blocks;
 run {
     my $block = shift;
 
-    is $spells->opponent($block->level, $block->scene), $block->opponent, 'opponent';
-    is $spells->card($block->level, $block->scene),     $block->card,     'card';
+    is $spells->opponent_from_level_and_scene($block->level, $block->scene), $block->opponent, 'opponent';
+    is $spells->card_from_level_and_scene($block->level, $block->scene),     $block->card,     'card';
 }
 
 __END__

@@ -11,7 +11,7 @@ use Path::Class qw(file);
 
 my $str  = file('t/replays/th95_01.rpy')->slurp();
 $str = decode( 'cp932', $str );
-my @keys = qw/label player date score level scene version comment/;
+my @keys = qw/label player date score level scene opponent card version comment/;
 
 plan tests => @keys * blocks;
 
@@ -39,6 +39,10 @@ Taro
 7
 --- scene chomp
 5
+--- opponent chomp
+十六夜 咲夜
+--- card chomp
+空虚「インフレーションスクウェア」
 --- version chomp
 1.02a
 --- comment chomp

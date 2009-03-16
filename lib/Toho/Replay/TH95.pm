@@ -5,6 +5,7 @@ use Carp::Clan;
 use utf8;
 
 with 'Toho::Replay::Parseable';
+extends 'Toho::Replay::TH95::Spells';
 
 has label     => ( is => 'ro', default => '東方文花帖' );
 has player    => ( is => 'rw', isa     => 'Str' );
@@ -13,6 +14,8 @@ has character => ( is => 'rw', isa     => 'Str' );
 has score     => ( is => 'rw', isa     => 'Int' );
 has level     => ( is => 'rw', isa     => 'Str' );
 has scene     => ( is => 'rw', isa     => 'Str' );
+has opponent  => ( is => 'rw', isa     => 'Str' );
+has card      => ( is => 'rw', isa     => 'Str' );
 has slow_rate => ( is => 'rw', isa     => 'Str' );
 has version   => ( is => 'rw', isa     => 'Str' );
 has comment   => ( is => 'rw', isa     => 'Str' );
@@ -48,6 +51,13 @@ sub parse {
     }
 
     $self->player( $self->trim_white_space($self->player) );
+
+    if ( $self->level >= 11 ) {
+        $self->level('EX');
+    }
+
+    $self->opponent( $self->opponent_from_level_and_scene($self->level, $self->scene)  );
+    $self->card( $self->card_from_level_and_scene($self->level, $self->scene)  );
 }
 
 1;
