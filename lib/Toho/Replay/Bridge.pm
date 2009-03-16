@@ -1,4 +1,4 @@
-package Toho::Replay::Factory;
+package Toho::Replay::Bridge;
 
 use Mouse;
 use Carp::Clan;
@@ -55,15 +55,20 @@ __END__
 
 =head1 NAME
 
-Toho::Replay::Role - Role for Toho::Replay.
+Toho::Replay::Bridge - Bridge for Toho::Replay::TH*.
 
 =head1 SYNOPSIS
 
-  use Toho::Replay::Role;
+  use Toho::Replay::Bridge;
+
+  my $bridge = Toho::Replay::Bridge->new();
+  my $replay = $bridge->from_file('replay/th8.rpy');
+  $replay = $bridge->from_handle($handle);
+  $replay = $bridge->from_file($string);
 
 =head1 DESCRIPTION
 
-Toho::Replay の Role です。
+Toho::Replay の Bridge です。
 
 =head1 AUTHOR
 

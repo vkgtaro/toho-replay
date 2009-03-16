@@ -4,13 +4,13 @@ use utf8;
 
 use Test::Base;
 
-use Toho::Replay::Factory;
+use Toho::Replay::Bridge;
 
 use Path::Class qw(file);
 
 plan tests => 3 * blocks;
 
-my $factory = Toho::Replay::Factory->new;
+my $factory = Toho::Replay::Bridge->new;
 
 run {
     my $block = shift;

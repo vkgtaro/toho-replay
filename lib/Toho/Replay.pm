@@ -4,12 +4,12 @@ use Mouse;
 
 our $VERSION = '0.01';
 
-use Toho::Replay::Factory;
+use Toho::Replay::Bridge;
 
-has 'factory' => (
+has 'bridge' => (
     is      => 'rw',
     default => sub {
-        Toho::Replay::Factory->new;
+        Toho::Replay::Bridge->new;
     },
 );
 
@@ -27,14 +27,14 @@ sub create {
 
     my $file = $self->file;
 
-    return $self->factory->from_handle($file)
+    return $self->bridge->from_handle($file)
         if UNIVERSAL::isa( $file, 'GLOB' )
             or ref( \$file ) eq 'GLOB';
 
-    return $self->factory->from_file($file)
+    return $self->bridge->from_file($file)
         if -f $file;
 
-    return $self->factory->from_string($file);
+    return $self->bridge->from_string($file);
 }
 
 1;
